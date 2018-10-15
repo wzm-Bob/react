@@ -28,6 +28,8 @@ const env = getClientEnvironment(publicUrl);
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
+const exclel = /src/;
+const exclels = /node_modules/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
@@ -266,19 +268,23 @@ module.exports = {
           // By default we support CSS Modules with the extension .module.css
           {
             test: cssRegex,
-            exclude: cssModuleRegex,
+           // exclude: cssModuleRegex,
+            exclude: exclels,
             use: getStyleLoaders({
               importLoaders: 1,
+              modules: true, 
+              //localIdentName: '[name]__[local]__[hash:base64:5]'
             }),
           },
           // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
           // using the extension .module.css
           {
-            test: cssModuleRegex,
+            test: cssRegex,
+            exclude: exclel,
             use: getStyleLoaders({
               importLoaders: 1,
-              modules: true,
-              getLocalIdent: getCSSModuleLocalIdent,
+             // modules: true,
+             // getLocalIdent: getCSSModuleLocalIdent,
             }),
           },
           // Opt-in support for SASS (using .scss or .sass extensions).
