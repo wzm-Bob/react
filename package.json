@@ -117,15 +117,18 @@
         {
           "libraryName": "antd",
           "style": "css"
-        },
+        }
+      ],
+      [
+        "@babel/plugin-proposal-decorators",
         {
-          "transform-decorators-legacy"       
+          "legacy": true
         }
       ]
     ]
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.9.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4"
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "babel-plugin-import": "^1.9.1"
   }
 }

@@ -15,8 +15,8 @@
 ### react-redux联结二者 不需要subscribe
 ### provider放最外层 传入 store 仅一次
 ### connect 从store中取数据放到当前组件的props中
-### connect用装饰器写安装插件babel-plugin-transform-decorators-legacy
-### 该插件要在package中配置 babel plugin
+### connect用装饰器写  安装插件babel-plugin-transform-decorators-legacy
+### babel7用@babel/plugin-proposal-decorators插件  前面的支持babel6
 ### 参数一要state啥属性放到props 参数二要啥方法放到props 并自动dispatch
 ### react-router-dom 路由安装
 ### browserRouter包裹整个应用
