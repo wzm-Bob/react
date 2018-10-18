@@ -11,8 +11,6 @@ export default class login extends Component {
     }
 
     render() {
-        return ( <
-            div > login < /div>
-        )
+        return ( < div> login </div>)
     }
 }
