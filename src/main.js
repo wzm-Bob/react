@@ -5,11 +5,12 @@ import Login from './page/base/login'
 import Notfound from './page/base/notfound'
 import Example from './page/base/example'
 import Register from './page/base/register'
+import AuthRoute from "./component/authroute/authroute";
 import  "./mock/login";
 export default() => (
     <HashRouter>
         <div>
-               {/* <AuthRoute></AuthRoute> */}
+                <AuthRoute></AuthRoute> 
 				<Switch>{/* 只会渲染命中的一个 */}
 					<Route path='/notfound' component={Notfound}></Route>
 					<Route path='/example' component={Example}></Route>
