@@ -5,7 +5,7 @@ import Login from './page/base/login'
 import Notfound from './page/base/notfound'
 import Example from './page/base/example'
 import Register from './page/base/register'
-import './config'
+import  "./mock/login";
 export default() => (
     <HashRouter>
         <div>

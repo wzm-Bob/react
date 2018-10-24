@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import reducers from './store/reducer/index'
+import './config'
 /* 请求拦截 */
 import Main from './main';
 import './index.css';

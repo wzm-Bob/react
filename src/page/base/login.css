@@ -1,0 +1,4 @@
+.box{width: 400px;height: 320px;background:#f2f2f2;margin: 30px auto;}
+.box>div{margin-bottom: 15px;}
+input{padding: 5px 8px;}
+.button{color: #fff;background: #4267ac;width: 125px;padding: 10px 0;}

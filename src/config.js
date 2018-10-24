@@ -18,3 +18,4 @@ axios.interceptors.response.use(function(config){
 	console.log('请求结束')
 	return config
 })
+export default axios

@@ -131,6 +131,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.1.2",
     "babel-plugin-import": "^1.9.1",
+    "mockjs": "^1.0.1-beta3",
     "nprogress": "^0.2.0"
   }
 }
