@@ -1,6 +1,7 @@
  import Mock from 'mockjs';
+ 
  const login = Mock.mock(
-     '/login/login', 'post', (req, res) => {
+     '/user/login', 'post', (req, res) => {
          debugger
          const {
              password,

@@ -1,10 +1,78 @@
-import React, {
-    Component
-} from 'react'
-import axios from 'axios'
-import LoginMap from "./login.css"
+import React, {Component} from 'react'
+ import LoginMap from "./login.css"
+import { login } from "../../redux/user.redux"
+import { Form, Icon, Input, Button } from 'antd'
+import { connect } from "react-redux";
 
-let lineStyle={
+const FormItem = Form.Item;
+@connect(
+    state => state.user, {
+        login
+    }
+)
+class NormalLoginForm extends Component  {
+    constructor(props, context){
+        super(props)
+        this.handleSubmit=this.handleSubmit.bind(this)
+        this.state = {
+            user: '',
+            password: ''
+        }
+    }
+handleChange(key,val){
+        //这里key必须加中括号  不然就是字符串
+        this.setState({
+            [key]:val
+        })
+    }
+  handleSubmit = (e) => {
+      debugger
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+        console.log(this.state)
+        console.log(this.props)
+        debugger
+      if (!err) {
+        this.props.login(values)
+      }
+    });
+  }
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+        <div className={LoginMap.box}>
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <FormItem>
+          {getFieldDecorator('user', {
+            rules: [{ required: true, message: '请输入您的用户名!' }],
+          })(
+            <Input onChange={v=>this.handleChange('user',v)} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: '请输入您的密码!' }],
+          })(
+            <Input onChange={v=>this.handleChange('password',v)} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+          )}
+        </FormItem>
+        <FormItem>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+           登录
+          </Button>
+        </FormItem>
+      </Form>
+      < /div>
+    );
+  }
+  
+}
+const Login = Form.create()(NormalLoginForm);
+export default Login;
+
+
+/*let lineStyle={
     marginTop:50,
     textAlign:'center',
     paddingTop:100
@@ -31,19 +99,8 @@ export default class login extends Component {
     }
     handleSubmit(){
         //https://react.docschina.org/docs/events.html
-        console.log(this.state.user)
-       
-        //debugger
-       /*  console.log(this.props)
-        console.log(this.state) */
-        /*axios.post('/login/login',{
-            user:'admin',
-            password:'888888'
-        })
-		.then(res=>{
-                debugger
-                console.log(res)
-			})*/
+        console.log(this.props.state)
+       this.props.login(this.props.state)
     }
     render() {
         return ( < div> 
@@ -55,4 +112,4 @@ export default class login extends Component {
         </div>
     </div>)
     }
-}
+}*/
