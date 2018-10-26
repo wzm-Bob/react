@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { message } from "antd";
+
 
 
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
@@ -31,15 +31,15 @@ function errorMsg(msg){
 	return { msg, type:ERROR_MSG }
 }
 export function login({user,password}){
-	/*if (!user||!pwd) {
-		return message.success('用户密码必须输入')
-	}*/
+  if (!user||!password) {
+	return alert('用户密码必须输入');
+	}
 	
 	return dispatch=>{
 		axios.post('/user/login',{user,password})
 			.then(res=>{
 				debugger
-				if (res.status === '200') {
+				if (res.status === 200) {
 					dispatch(authSuccess(res.data))
 					// 
 				}else{

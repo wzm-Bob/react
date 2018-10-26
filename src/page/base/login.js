@@ -1,115 +1,68 @@
 import React, {Component} from 'react'
- import LoginMap from "./login.css"
-import { login } from "../../redux/user.redux"
-import { Form, Icon, Input, Button } from 'antd'
-import { connect } from "react-redux";
+import LoginMap from "./login.css"
+import {login} from "../../redux/user.redux"
+import {connect} from "react-redux"
+import {Redirect} from 'react-router-dom'
 
-const FormItem = Form.Item;
-@connect(
-    state => state.user, {
-        login
-    }
-)
-class NormalLoginForm extends Component  {
-    constructor(props, context){
-        super(props)
-        this.handleSubmit=this.handleSubmit.bind(this)
-        this.state = {
-            user: '',
-            password: ''
-        }
-    }
-handleChange(key,val){
-        //这里key必须加中括号  不然就是字符串
-        this.setState({
-            [key]:val
-        })
-    }
-  handleSubmit = (e) => {
-      debugger
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-        console.log(this.state)
-        console.log(this.props)
-        debugger
-      if (!err) {
-        this.props.login(values)
-      }
-    });
-  }
-
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-        <div className={LoginMap.box}>
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <FormItem>
-          {getFieldDecorator('user', {
-            rules: [{ required: true, message: '请输入您的用户名!' }],
-          })(
-            <Input onChange={v=>this.handleChange('user',v)} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: '请输入您的密码!' }],
-          })(
-            <Input onChange={v=>this.handleChange('password',v)} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
-        <FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-           登录
-          </Button>
-        </FormItem>
-      </Form>
-      < /div>
-    );
-  }
-  
+let lineStyle = {
+    marginTop: 50,
+    textAlign: 'center',
+    paddingTop: 100
 }
-const Login = Form.create()(NormalLoginForm);
-export default Login;
-
-
-/*let lineStyle={
-    marginTop:50,
-    textAlign:'center',
-    paddingTop:100
-}
-export default class login extends Component {
+class Login extends Component {
     // 初始化页面常量 绑定事件方法
-    constructor(props, context) {
+    constructor(props) {
         super(props)
+        this.state = {
+			user:'',
+			password:''
+		}
         this.handleLink = this.handleLink.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.state = {
-            user:'rr',
-            password:'444'
-        }
     }
-    handleLink(){  
+    handleLink() {
         this.props.history.push('./register')
     }
     handleChange(key,val){
-        //这里key必须加中括号  不然就是字符串
-        this.setState({
-            [key]:val
-        })
-    }
-    handleSubmit(){
+		this.setState({
+			[key]:val.target.value
+		})
+	}
+    handleSubmit() {
+        debugger
         //https://react.docschina.org/docs/events.html
-        console.log(this.props.state)
-       this.props.login(this.props.state)
+        console.log(this.props)
+        console.log(this.state)
+        /* 把setState当作是请求更新组件，而不是立即更新组件。为了性能，React会延迟更新，
+        会把多个组件的更新放在一次操作里。React不保证state的改变会立刻发生 */
+        this.props.login(this.state)   
     }
     render() {
-        return ( < div> 
-        <div className={LoginMap.box} style={lineStyle}>
-            <div><input type="text" onChange={v=>this.handleChange('user',v)} placeholder='请输入用户名'></input></div>
-            <div><input type="password" onChange={v => this.handleChange('password', v)} placeholder='请输入密码'></input></div>
-            <div><button style={{outline:'none'}} onClick={this.handleSubmit} className={LoginMap.button}>登录</button></div>
-            <div><button style={{outline:'none'}} onClick={this.handleLink} className={LoginMap.button}>注册</button ></div>
-        </div>
-    </div>)
-    }
-}*/
+        return (
+          <div>
+          {(this.props.redirectTo&&this.props.redirectTo!=='/login')? <Redirect to={this.props.redirectTo} />:null}
+              <div className={LoginMap.box} style={lineStyle}>
+              <div style={{marginBottom:15}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>
+            <div style={{marginBottom:15}}><input type="password" onChange={v=>this.handleChange('password', v)} placeholder='请输入密码' ></input> </div>
+            <div><button onClick = {this.handleSubmit} className = {LoginMap.button}>登录</button> </div>
+              </div>
+          </div>
+        )
+       }
+   }
+
+   function mapStateToProps(state) {
+    return state.user
+}
+/* 而mapDispatchToProp常规的写法应该是返回一个Object，这个Object与 mapStateToProps 的返回值不同的是
+它的value并不是一个固定值，而是一个返回值为dispath()方法的回调函数 */
+/* 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  let actionObject1 = actions.increase(...args);//actions.类型
+  let actionObject2 = actions.decrease(...args);
+  return {
+    increase: ()=>(dispatch(actionObject1)),
+    decrease: ()=>(dispatch(actionObject2))
+  } */
+/*  connect第二个参数可以直接放入action对象*/
+export default connect(mapStateToProps,{login})(Login)
