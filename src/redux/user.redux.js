@@ -35,9 +35,9 @@ export function login({user,password}){
 	return alert('用户密码必须输入');
 	}
 	
-	return dispatch=>{
-		axios.post('/user/login',{user,password})
-			.then(res=>{
+	return async dispatch=>{
+		let res = await axios.post('/user/login',{user,password})
+			//将函数弄成async函数 然后就能用await将异步操作转成同步
 				debugger
 				if (res.status === 200) {
 					dispatch(authSuccess(res.data))
@@ -45,7 +45,7 @@ export function login({user,password}){
 				}else{
 					dispatch(errorMsg(res.data.msg))
 				}
-			})		
+			
 	}
 
 

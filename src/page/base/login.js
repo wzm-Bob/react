@@ -9,6 +9,10 @@ let lineStyle = {
     textAlign: 'center',
     paddingTop: 100
 }
+/* @connect(
+    state=>state.user,
+    {login}
+) */
 class Login extends Component {
     // 初始化页面常量 绑定事件方法
     constructor(props) {
@@ -51,9 +55,9 @@ class Login extends Component {
        }
    }
 
-   function mapStateToProps(state) {
+function mapStateToProps(state) {
     return state.user
-}
+} 
 /* 而mapDispatchToProp常规的写法应该是返回一个Object，这个Object与 mapStateToProps 的返回值不同的是
 它的value并不是一个固定值，而是一个返回值为dispath()方法的回调函数 */
 /* 
@@ -66,3 +70,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   } */
 /*  connect第二个参数可以直接放入action对象*/
 export default connect(mapStateToProps,{login})(Login)
+// export default Login
