@@ -44,6 +44,7 @@ class Login extends Component {
     render() {
         return (
           <div>
+          
           {(this.props.redirectTo&&this.props.redirectTo!=='/login')? <Redirect to={this.props.redirectTo} />:null}
               <div className={LoginMap.box} style={lineStyle}>
               <div style={{marginBottom:15}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>

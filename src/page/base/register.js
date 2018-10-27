@@ -12,7 +12,7 @@ export default class welcome extends Component {
 
     render() {
         return ( 
-            <div>welcome</div>
+            <div>我要注册</div>
         )
     }
 }

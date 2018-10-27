@@ -14,7 +14,7 @@ const initState={
 export function user(state=initState, action){
 	switch(action.type){
 		case AUTH_SUCCESS:
-			return {...state, msg:'',redirectTo:'/notfound',...action.payload}
+			return {...state, msg:'',redirectTo:'/home',...action.payload}
 		case ERROR_MSG:
 			return {...state, isAuth:false, msg:action.msg}
 		default:
