@@ -9,7 +9,7 @@ import AuthRoute from "./component/authroute/authroute";
 import  "./mock/login";
 export default() => (
     <HashRouter>
-        <div>
+        <div style={{height:'100%'}}>
                 <AuthRoute></AuthRoute> 
 				<Switch>{/* 只会渲染命中的一个 */}
 					<Route path='/notfound' component={Notfound}></Route>

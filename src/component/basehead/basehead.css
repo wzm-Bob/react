@@ -1,6 +1,18 @@
-.pub-head{
-    height: 80px;
-    width: 100%;
-    background: blueviolet;
-    padding: 0 20px;
+
+.pubHead>div{height: auto}
+/*在react中不要用中华线*/
+.log{
+font-size: 30px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: #fff;
+font-weight: 600;
+flex:0 0 38%;
+text-shadow: 0 0 5px #cacaca;
+}
+.user{
+flex: 0 0 12%;
+}
+.nav{
+flex: 0 0 50%;
+overflow: hidden;
 }

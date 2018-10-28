@@ -5,9 +5,12 @@ import {connect} from "react-redux"
 import {Redirect} from 'react-router-dom'
 
 let lineStyle = {
-    marginTop: 50,
+    marginTop: 0,
     textAlign: 'center',
-    paddingTop: 100
+    position: 'absolute',
+    top:'10%',
+    marginLeft:-250,
+    left:'50%'
 }
 /* @connect(
     state=>state.user,
@@ -43,12 +46,13 @@ class Login extends Component {
     }
     render() {
         return (
-          <div>
+          <div style={{background:'green',position:'relative',height:'100%'}}>
           
           {(this.props.redirectTo&&this.props.redirectTo!=='/login')? <Redirect to={this.props.redirectTo} />:null}
               <div className={LoginMap.box} style={lineStyle}>
-              <div style={{marginBottom:15}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>
-            <div style={{marginBottom:15}}><input type="password" onChange={v=>this.handleChange('password', v)} placeholder='请输入密码' ></input> </div>
+              <h2 style={{marginBottom:45}}>西部野战指挥作战系统</h2>
+              <div style={{marginBottom:25}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>
+            <div style={{marginBottom:25}}><input type="password" onChange={v=>this.handleChange('password', v)} placeholder='请输入密码' ></input> </div>
             <div><button onClick = {this.handleSubmit} className = {LoginMap.button}>登录</button> </div>
               </div>
           </div>

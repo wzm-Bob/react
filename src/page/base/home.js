@@ -16,8 +16,9 @@ export default class home extends Component {
         return ( 
             <div> 
             <BaseHead></BaseHead>
-            div.pub-contain  
-            <BaseMenu> </BaseMenu>
+            <div className="pub-contain">
+                 <BaseMenu > < /BaseMenu>
+            </div>   
             </div>
         )
     }
