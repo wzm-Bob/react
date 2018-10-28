@@ -17,7 +17,7 @@ export default class home extends Component {
             <div> 
             <BaseHead></BaseHead>
             <div className="pub-contain">
-                 <BaseMenu > < /BaseMenu>
+                 <BaseMenu > </BaseMenu>
             </div>   
             </div>
         )

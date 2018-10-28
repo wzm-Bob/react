@@ -39,7 +39,7 @@ export function login({user,password}){
 		let res = await axios.post('/user/login',{user,password})
 			//将函数弄成async函数 然后就能用await将异步操作转成同步
 				debugger
-				if (res.status === 200) {
+				if (res.data.status === 'ok') {
 					dispatch(authSuccess(res.data))
 					// 
 				}else{

@@ -4,16 +4,17 @@ input{
     padding: 10px 15px;
     border: 1px solid #fff;
     border-radius: 5px;
-    min-width: 200px;
+    min-width: 290px;
     font-size: 18px;
 }
-h2{color: #fff;font-weight: 600;font-size: 44px;
+.title{color: #fff;font-weight: 600;font-size: 38px;
 text-align: center;text-shadow: 0 0 5px #cacaca}
 .button{
     color: #fff;
-    background: crimson;
-    min-width: 200px;
-    padding: 5px 0;
+    background: rgb(1, 58, 1);
+    min-width: 300px;
+    padding: 10px;
     font-size: 20px;
     border-radius: 5px;
+    cursor: pointer;
 }

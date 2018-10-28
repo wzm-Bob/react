@@ -50,9 +50,9 @@ class Login extends Component {
           
           {(this.props.redirectTo&&this.props.redirectTo!=='/login')? <Redirect to={this.props.redirectTo} />:null}
               <div className={LoginMap.box} style={lineStyle}>
-              <h2 style={{marginBottom:45}}>西部野战指挥作战系统</h2>
-              <div style={{marginBottom:25}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>
-            <div style={{marginBottom:25}}><input type="password" onChange={v=>this.handleChange('password', v)} placeholder='请输入密码' ></input> </div>
+              <h2 className={LoginMap.title} style={{marginBottom:45}}>西部陆军野战指挥作战系统</h2>
+              <div style={{marginBottom:45}}><input type="text" onChange={v=>this.handleChange('user', v)} placeholder='请输入用户名' ></input> </div>
+            <div style={{marginBottom:55}}><input type="password" onChange={v=>this.handleChange('password', v)} placeholder='请输入密码' ></input> </div>
             <div><button onClick = {this.handleSubmit} className = {LoginMap.button}>登录</button> </div>
               </div>
           </div>

@@ -38,6 +38,7 @@
          return {
              status: 'error',
              currentAuthority: 'guest',
+             msg:'用户名或密码错误'
          }
      })
  const vehicle = Mock.mock(

@@ -1,4 +1,5 @@
 import React  from　'react'
+import { Carousel } from 'antd';
 import Head from "./basehead.css";
 
 let styles={
@@ -11,15 +12,38 @@ let styles={
         justifyContent: 'space-between',
         alignItems: 'center'
 }
+
 class BaseHead extends React.Component{
     constructor(props,context){
         super(props)
+        this.state={
+            nav2:null
+        }
     }
+    componentDidMount(){
+        this.setState({
+            nav2: this.slider2
+        })
+    }
+    
     render(){
         return (
             <div className={Head.pubHead} style={styles}>
                 <div className={Head.log}>西部野战陆军作战指挥系统</div>
-                <div className={Head.nav}>9999</div>
+                <div className={Head.nav} style={{background:'#f90'}}>
+                    <Carousel 
+                    dots={false}
+                    asNavFor={this.state.nav2}
+                    ref={slider => (this.slider2 = slider)}
+                    slidesToShow={3}
+                    swipeToSlide={true}
+                    focusOnSelect={true}>
+                        <div><h3>菜单1</h3></div>
+                        <div><h3>菜单2</h3></div>
+                        <div><h3>菜单3</h3></div>
+                        <div><h3>菜单4</h3></div>
+                    </Carousel>
+                </div>
                 <div className={Head.user}>个人中心</div>
             </div>
         )
