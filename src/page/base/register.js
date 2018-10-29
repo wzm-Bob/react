@@ -1,34 +1,42 @@
 import React, { Component } from "react";
-import {
-    Carousel
-} from 'antd';
+import Slider from "react-slick";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red" }}
+      onClick={onClick}
+    />
+  );
+}
 
-export default class AsNavFor extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nav1: null,
-      nav2: null
-    };
-  }
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "green" }}
+      onClick={onClick}
+    />
+  );
+}
 
-  componentDidMount() {
-    this.setState({
-      nav1: this.slider1,
-      nav2: this.slider2
-    });
-  }
-
+export default class CustomArrows extends Component {
   render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
+    };
     return (
       <div>
-        <h2>Slider Syncing (AsNavFor)</h2>
-        <h4>First Slider</h4>
-        <Carousel
-          asNavFor={this.state.nav2}
-          ref={slider => (this.slider1 = slider)}
-        >
+        <h2>Custom Arrows</h2>
+        <Slider {...settings}>
           <div>
             <h3>1</h3>
           </div>
@@ -47,34 +55,7 @@ export default class AsNavFor extends Component {
           <div>
             <h3>6</h3>
           </div>
-        </Carousel>
-        <h4>Second Slider</h4>
-        <Carousel
-          asNavFor={this.state.nav1}
-          ref={slider => (this.slider2 = slider)}
-          slidesToShow={3}
-          swipeToSlide={true}
-          focusOnSelect={true}
-        >
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        < /Carousel>
+        </Slider>
       </div>
     );
   }

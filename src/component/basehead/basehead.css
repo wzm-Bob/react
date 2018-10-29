@@ -11,10 +11,15 @@ text-shadow: 0 0 5px #cacaca;
 }
 .user{
 flex: 0 0 12%;
+text-align: center;
 }
 .nav{
 flex: 0 0 50%;
 overflow: hidden;
+}
+.linkNav h3{
+    color: #fff;
+    font-size: 18px;
 }
 
 
