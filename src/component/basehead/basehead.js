@@ -18,22 +18,54 @@ class BaseHead extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      nav2: null
+      nav2: null,
+      navData:[
+          {
+              tilte: '走马观花',
+              id: '1',
+              path: '/abc'
+          }, {
+              tilte: '铁骨铮铮',
+              id: '2',
+              path: '/abc'
+          }, {
+              tilte: '大义凛然',
+              id: '3',
+              path: '/abc'
+          }, {
+              tilte: '仪表堂堂',
+              id: '4',
+              path: '/abc'
+          }, {
+              tilte: '平步青云',
+              id: '5',
+              path: '/abc'
+          }, {
+              tilte: '至高无上',
+              id: '6',
+              path: '/abc'
+          }, {
+              tilte: '无与伦比',
+              id: '7',
+              path: '/abc'
+          }, {
+              tilte: '瞒天过海',
+              id: '8',
+              path: '/abc'
+          },
+      ]
     };
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
+   //this.goToPage=this.goToPage.bind(this)
   }
   componentDidMount() {
     this.setState({
       nav2: this.slider
     });
   }
-  next() {
-    this.slider.slickNext();
-  }
-  previous() {
-    this.slider.slickPrev();
-  }
+ goToPage(c){
+    debugger
+    console.log(c)
+ }
   render() {
     const menu = (
       <Menu>
@@ -69,6 +101,7 @@ class BaseHead extends React.Component {
         </Menu.Item>
       </Menu>
     );
+    const {navData} =this.state;
     return (
       <div className={Head.pubHead} style={styles}>
         <div className={Head.log}>西部野战陆军作战指挥系统</div>
@@ -82,35 +115,24 @@ class BaseHead extends React.Component {
             slidesToScroll={1}
             // swipeToSlide={true}
             // focusOnSelect={true}
-          >
-            <div key={1} className={Head.linkNav}>
-              <h3>走马观花</h3>
-            </div>
-            <div key={2} className={Head.linkNav}>
-              <h3>铁骨铮铮</h3>
-            </div>
-            <div key={3} className={Head.linkNav}>
-              <h3>大义凛然</h3>
-            </div>
-            <div key={4} className={Head.linkNav}>
-              <h3>仪表堂堂</h3>
-            </div>
-            <div key={5} className={Head.linkNav}>
-              <h3>平步青云</h3>
-            </div>
-            <div key={6} className={Head.linkNav}>
-              <h3>至高无上</h3>
-            </div>
-            <div key={7} className={Head.linkNav}>
-              <h3>无与伦比</h3>
-            </div>
+          >{
+            navData.map(item=>(
+                 <div key={item.id} 
+                 onClick={this.goToPage.bind(this,item.path)} 
+                 className={Head.linkNav}>
+                    <h3> {item.tilte}</h3>
+                </div>
+                )) 
+            }   
           </Slider>
+        {/* onClick 不传参数{this.methodname}
+     传参数 {this.handleClick.bind(this, props0, props1, ...}*/}
         </div>
         <div className={Head.user}>
           <Dropdown overlay={menu}>
             <a
               className="ant-dropdown-link"
-              href="#"
+              href="baidu.com"
               style={{ color: "#fff", fontSize: 18 }}
             >
               <Icon type="user" theme="outlined" style={{ fontSize: 26 }} />

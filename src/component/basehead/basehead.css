@@ -1,5 +1,8 @@
 
-.pubHead>div{height: auto}
+.pubHead>div{
+    height: 80px;
+    line-height: 80px;
+}
 /*在react中不要用中华线*/
 .log{
 font-size: 30px;
@@ -25,8 +28,8 @@ overflow: hidden;
     padding: 3px 5px 3px 0;
 }
 /* 这里就是覆盖默认样式方法一 */
-.nav :global(.slick-next) { right: 0;top: 13px;}
-.nav :global(.slick-prev) { left: 0;top: 13px;}
+.nav :global(.slick-next) { right: 0;top: 47%;}
+.nav :global(.slick-prev) { left: 0;top: 47%;}
 .nav :global(.slick-initialized .slick-slide) { text-align: center;cursor: pointer;}
 .nav :global(.slick-initialized) {padding: 0 30px}
 
