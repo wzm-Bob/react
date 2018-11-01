@@ -6,7 +6,7 @@ font-size: 30px;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 color: #fff;
 font-weight: 600;
-flex:0 0 38%;
+flex:0 0 34%;
 text-shadow: 0 0 5px #cacaca;
 }
 .user{
@@ -14,13 +14,24 @@ flex: 0 0 12%;
 text-align: center;
 }
 .nav{
-flex: 0 0 50%;
+flex: 0 0 54%;
 overflow: hidden;
 }
 .linkNav h3{
     color: #fff;
     font-size: 18px;
 }
+.body :global(.ant-tree li .ant-tree-node-content-wrapper) {
+    padding: 3px 5px 3px 0;
+}
+/* 这里就是覆盖默认样式方法一 */
+.nav :global(.slick-next) { right: 0;top: 13px;}
+.nav :global(.slick-prev) { left: 0;top: 13px;}
+.nav :global(.slick-initialized .slick-slide) { text-align: center;cursor: pointer;}
+.nav :global(.slick-initialized) {padding: 0 30px}
+
+
+
 
 
 
