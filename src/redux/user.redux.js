@@ -4,11 +4,13 @@ import axios from "axios";
 
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
+const NAV_DATA = 'NAV_DATA'
 const initState={
 	redirectTo:'',
 	msg:'',
 	user:'',
-	type:''
+	type:'',
+	navData:[]
 }
 // reducer
 export function user(state=initState, action){
@@ -17,6 +19,8 @@ export function user(state=initState, action){
 			return {...state, msg:'',redirectTo:'/home',...action.payload}
 		case ERROR_MSG:
 			return {...state, isAuth:false, msg:action.msg}
+		case NAV_DATA:
+			return {...state}
 		default:
 			return state
 	}
@@ -29,6 +33,15 @@ function authSuccess(obj){
 
 function errorMsg(msg){
 	return { msg, type:ERROR_MSG }
+}
+function navDatas(res){
+	debugger
+	return {  type:NAV_DATA,payload:res.data }
+}
+export async function navData() {
+	debugger
+	let res=await axios.get('/api/nav')
+	return navDatas(res)
 }
 export function login({user,password}){
   if (!user||!password) {

@@ -1,4 +1,5 @@
  import Mock from 'mockjs';
+ import { navData } from "./list";
  
  const login = Mock.mock(
      '/user/login', 'post', (req, res) => {
@@ -80,5 +81,6 @@
  export default {
      vehicle,
      user,
-     login
+     login,
+     navData
  }

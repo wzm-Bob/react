@@ -20,12 +20,13 @@ text-align: center;
 flex: 0 0 54%;
 overflow: hidden;
 }
-.linkNav h3{
+.nav :global(.linkNav h3) {
     color: #fff;
     font-size: 18px;
 }
-.body :global(.ant-tree li .ant-tree-node-content-wrapper) {
-    padding: 3px 5px 3px 0;
+
+.nav :global(.linkNav.active) {
+    background: rgb(46, 65, 18);
 }
 /* 这里就是覆盖默认样式方法一 */
 .nav :global(.slick-next) { right: 0;top: 47%;}

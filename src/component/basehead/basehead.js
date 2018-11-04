@@ -2,6 +2,8 @@ import React from "react";
 import { Menu, Dropdown, Icon } from "antd";
 import Slider from "react-slick";
 import Head from "./basehead.css";
+import axios from "axios";
+
 
 let styles = {
   height: 80,
@@ -19,52 +21,30 @@ class BaseHead extends React.Component {
     super(props);
     this.state = {
       nav2: null,
-      navData:[
-          {
-              tilte: '走马观花',
-              id: '1',
-              path: '/abc'
-          }, {
-              tilte: '铁骨铮铮',
-              id: '2',
-              path: '/abc'
-          }, {
-              tilte: '大义凛然',
-              id: '3',
-              path: '/abc'
-          }, {
-              tilte: '仪表堂堂',
-              id: '4',
-              path: '/abc'
-          }, {
-              tilte: '平步青云',
-              id: '5',
-              path: '/abc'
-          }, {
-              tilte: '至高无上',
-              id: '6',
-              path: '/abc'
-          }, {
-              tilte: '无与伦比',
-              id: '7',
-              path: '/abc'
-          }, {
-              tilte: '瞒天过海',
-              id: '8',
-              path: '/abc'
-          },
-      ]
+      curr:0,
+      navData:[]
     };
-   //this.goToPage=this.goToPage.bind(this)
   }
   componentDidMount() {
+    var _this=this
+    axios.get('/api/nav').then(function(res){
+      debugger
+      setTimeout(() => {
+         _this.setState({
+           navData: res.data
+         });
+      }, 0);
+      
+    })
     this.setState({
       nav2: this.slider
     });
   }
- goToPage(c){
+ goToPage(path,event) {
     debugger
-    console.log(c)
+    this.setState({
+      curr: parseInt(event.currentTarget.getAttribute('index'), 10)
+    })
  }
   render() {
     const menu = (
@@ -116,10 +96,11 @@ class BaseHead extends React.Component {
             // swipeToSlide={true}
             // focusOnSelect={true}
           >{
-            navData.map(item=>(
+            navData.map((item,i)=>(
                  <div key={item.id} 
+                 index={i}
                  onClick={this.goToPage.bind(this,item.path)} 
-                 className={Head.linkNav}>
+                 className={`linkNav ${this.state.curr===i?'active':''}`}>
                     <h3> {item.tilte}</h3>
                 </div>
                 )) 

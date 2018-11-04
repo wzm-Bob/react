@@ -2,7 +2,7 @@ import React, {
     Component
 } from 'react'
 import BaseHead from "../../component/basehead/basehead"
-import BaseMenu from "../../component/baseleftmenu/basemenu"
+//import BaseMenu from "../../component/baseleftmenu/basemenu"
 
 
 export default class home extends Component {
@@ -17,7 +17,7 @@ export default class home extends Component {
             <div> 
             <BaseHead></BaseHead>
             <div className="pub-contain">
-                 <BaseMenu > </BaseMenu>
+                 
             </div>   
             </div>
         )
