@@ -53,7 +53,7 @@ class BaseHead extends React.Component {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="http://www.alipay.com/"
+            href="/usercenter"
           >
             <Icon type="lock" theme="outlined" />
             &nbsp;个人中心
@@ -63,7 +63,7 @@ class BaseHead extends React.Component {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="http://www.taobao.com/"
+            href="changepass"
           >
             <Icon type="delete" theme="outlined" />
             &nbsp;修改密码
@@ -73,10 +73,10 @@ class BaseHead extends React.Component {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="http://www.tmall.com/"
+            href="/login"
           >
             <Icon type="poweroff" theme="outlined" />
-            &nbsp;后台完善
+            &nbsp;退出登录
           </a>
         </Menu.Item>
       </Menu>

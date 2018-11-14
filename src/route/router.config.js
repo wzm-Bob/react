@@ -30,6 +30,7 @@ const dynamicWrapper = (app, models, component) => {
     }
   });
 
+<<<<<<< HEAD
   // () => require('module')
   // transformed by babel-plugin-dynamic-import-node-sync
   if (component.toString().indexOf('.then(') < 0) {
@@ -223,3 +224,8 @@ export const getRouterData = app => {
   });
   return routerData;
 };
+=======
+export default () => (
+
+)
+>>>>>>> b288c092337e514d4a2d87ea0c7ec96b11c7c113

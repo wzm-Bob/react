@@ -1,0 +1,9 @@
+.leftMenu{
+    float: left;
+    width:240px;
+    border-right: 1px solid #ccc;
+    overflow: hidden;
+}
+.rightArea{
+    overflow: hidden;
+}
