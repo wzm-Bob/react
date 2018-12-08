@@ -46,7 +46,7 @@ class Login extends Component {
     }
     render() {
         return (
-          <div style={{background:'green',position:'relative',height:'100%'}}>
+          <div style={{background:'lightblue',position:'relative',height:'100%'}}>
           
           {(this.props.redirectTo&&this.props.redirectTo!=='/login')? <Redirect to={this.props.redirectTo} />:null}
               <div className={LoginMap.box} style={lineStyle}>
