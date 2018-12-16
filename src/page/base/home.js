@@ -17,7 +17,8 @@ export default class home extends Component {
             <div> 
             <BaseHead></BaseHead>
             <div className="pub-contain">
-                <route-link></route-link>
+
+                <route-link> 放入配置的路由</route-link>
             {/*     <div className={Styles.leftMenu}>
                 99999
                 </div> 
