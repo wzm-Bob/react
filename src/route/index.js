@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import AllComponents from '../components';
+import AllComponents from '../page/dashboard';
 import routesConfig from './config';
 import queryString from 'query-string';
 
