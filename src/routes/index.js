@@ -1,14 +1,12 @@
-/**
- * Created by 叶子 on 2017/8/13.
- */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import AllComponents from '../page/dashboard';
+import AllComponents from '../page';
 import routesConfig from './config';
 import queryString from 'query-string';
 
 export default class CRouter extends Component {
-    requireAuth = (permission, component) => {
+  /*   requireAuth = (permission, component) => {
+        debugger
         const { auth } = this.props;
         const { permissions } = auth.data;
         // const { auth } = store.getState().httpData;
@@ -16,20 +14,23 @@ export default class CRouter extends Component {
         return component;
     };
     requireLogin = (component, permission) => {
+        debugger
         const { auth } = this.props;
         const { permissions } = auth.data;
         if (process.env.NODE_ENV === 'production' && !permissions) { // 线上环境判断是否登录
             return <Redirect to={'/login'} />;
         }
         return permission ? this.requireAuth(permission, component) : component;
-    };
+    }; */
     render() {
         return (
             <Switch>
                 {
                     Object.keys(routesConfig).map(key => 
                         routesConfig[key].map(r => {
+                            debugger
                             const route = r => {
+                                debugger
                                 const Component = AllComponents[r.component];
                                 return (
                                     <Route

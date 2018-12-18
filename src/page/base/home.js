@@ -2,7 +2,7 @@ import React, {
     Component
 } from 'react'
 import BaseHead from "../../component/basehead/basehead"
-import Routes from "../../route/index"
+import Routes from "../../routes"
 import Styles from "./home.css";
 
 
@@ -19,7 +19,7 @@ export default class home extends Component {
             <BaseHead></BaseHead>
             <div className="pub-contain">
 
-                <Routes></Routes>
+                <Routes></Routes> 
             {/*     <div className={Styles.leftMenu}>
                 99999
                 </div> 

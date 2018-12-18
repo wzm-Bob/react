@@ -1,10 +1,17 @@
-import { Carousel } from 'antd';
+import React, {
+  Component
+} from 'react'
 
-ReactDOM.render(
-  <Carousel vertical>
-    <div><h3>1</h3></div>
-    <div><h3>2</h3></div>
-    <div><h3>3</h3></div>
-    <div><h3>4</h3></div>
-  </Carousel>,
-  mountNode);
+
+export default class monitor extends Component {
+  // 初始化页面常量 绑定事件方法
+  constructor(props, context) {
+      super(props)
+      this.state = {}
+  }
+
+  render() {
+      return ( <div> <h1>监控页面</h1> </div>
+      )
+  }
+}

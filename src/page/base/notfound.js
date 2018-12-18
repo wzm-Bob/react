@@ -11,8 +11,7 @@ export default class notfound extends Component {
     }
 
     render() {
-        return ( <
-            div > 404 < /div>
+        return ( <div> 404 </div>
         )
     }
 }
