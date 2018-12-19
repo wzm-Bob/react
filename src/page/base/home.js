@@ -1,9 +1,9 @@
 import React, {
     Component
 } from 'react'
-import BaseHead from "../../component/basehead/basehead"
+import BaseHead from "../../components/basehead/basehead"
 import Routes from "../../routes"
-import Styles from "./home.css";
+// import Styles from "./home.css";
 
 
 export default class home extends Component {

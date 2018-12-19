@@ -5,7 +5,7 @@ import Login from './page/base/login'
 import Notfound from './page/base/notfound'
 import Home from './page/base/home'
 import Register from './page/base/register'
-import AuthRoute from "./component/authroute/authroute";
+import AuthRoute from "./components/authroute/authroute";
 import  "./mock/login";
 export default() => (
     <HashRouter>

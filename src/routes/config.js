@@ -2,11 +2,11 @@ export default {
     menus: [ // 菜单相关路由
         //{ key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
         {
-            key: '/home/page/dashboard', title: 'UI', icon: 'scan',
+            key: '/home/dashboard', title: 'UI', icon: 'scan',
             subs: [
-                { key: '/home/page/dashboard/analysis', title: '分析页', component: 'analysis'},
-                { key: '/home/page/dashboard/monitor', title: '监控页', component: 'monitor'},
-                { key: '/home/page/dashboard/workplace', title: '工作台', component: 'workplace'},
+                { key: '/home/dashboard/analysis', title: '分析页', component: 'analysis'},
+                { key: '/home/dashboard/monitor', title: '监控页', component: 'monitor'},
+                { key: '/home/dashboard/workplace', title: '工作台', component: 'workplace'},
             ],
         }
     ],
