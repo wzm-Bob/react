@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { Row, Col, Card, Button, Radio, Icon, Menu, Dropdown } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
 
 class Buttons extends React.Component {
     state = {
@@ -35,7 +34,7 @@ class Buttons extends React.Component {
         );
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="按钮" />
+            7777
                 <Row gutter={16}>
                     <Col className="gutter-row" md={12}>
                         <div className="gutter-box">

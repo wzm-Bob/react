@@ -9,6 +9,7 @@ import queryString from 'query-string';
 
 export default class CRouter extends Component {
     requireAuth = (permission, component) => {
+        debugger
         const { auth } = this.props;
         const { permissions } = auth.data;
         // const { auth } = store.getState().httpData;
@@ -16,6 +17,7 @@ export default class CRouter extends Component {
         return component;
     };
     requireLogin = (component, permission) => {
+        debugger
         const { auth } = this.props;
         const { permissions } = auth.data;
         if (process.env.NODE_ENV === 'production' && !permissions) { // 线上环境判断是否登录

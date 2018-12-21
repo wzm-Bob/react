@@ -4,7 +4,6 @@
 import React from 'react';
 import Emoji from './emoji';
 import { Row, Col, Card, Icon } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
 
 const emojiList = () => {
     let _elements = [];
@@ -29,7 +28,7 @@ const iconsList = Object.keys(icons).map(v => icons[v].map((icon, i) => (
 
 const Icons = () => (
     <div className="gutter-example">
-        <BreadcrumbCustom first="UI" second="图标" />
+999999
         <Row gutter={16}>
             <Col className="gutter-row" md={24}>
                 <div className="gutter-box">
