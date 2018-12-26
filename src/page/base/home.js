@@ -18,8 +18,10 @@ export default class home extends Component {
             <div> 
             <BaseHead></BaseHead>
             <div className="pub-contain">
+8888
 
-                <Routes></Routes> 
+<Routes></Routes>
+              {/*   <Routes></Routes>  */}
             {/*     <div className={Styles.leftMenu}>
                 99999
                 </div> 

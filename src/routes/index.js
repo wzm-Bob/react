@@ -31,6 +31,7 @@ export default class CRouter extends Component {
                 {
                     Object.keys(routesConfig).map(key => 
                         routesConfig[key].map(r => {
+                            debugger
                             const route = r => {
                                 const Component = AllComponents[r.component];
                                 return (
@@ -51,17 +52,17 @@ export default class CRouter extends Component {
                                             const merge = { ...props, query: queryParams ? queryString.parse(queryParams[0]) : {} };
                                             return r.login 
                                                 ? <Component {...merge} />
-                                                : this.requireLogin(<Component {...merge} />, r.auth)
+                                                : this.requireLogin(<Component {...merge} />, r.auth) 
                                         }}
                                     />
                                 )
                             }
-                            return r.component ? route(r) : r.subs.map(r => route(r));
+                             return r.component ? route(r) : r.subs.map(r => route(r)); 
                         })
                     )
                 }
 
-                <Route render={() => <Redirect to="/404" />} />
+                <Route render={() => <Redirect to="/notfound" />} />
             </Switch>
         )
     }
